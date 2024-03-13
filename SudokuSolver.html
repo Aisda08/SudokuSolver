@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>Sudoku Solver</title>
+  </head>
+  <body>
+    <header>
+      <div class="header-logo" id="menu">
+        <div class="header-logo-upper">S</div>
+        <div>udoku</div>
+        <div class="header-logo-upper">S</div>
+        <div>olver</div>
+
+      </div>
+
+    </header>
+
+    <div class="sudoku-main">
+      <div class="sudoku-grid">
+        <div class="sudoku-grid-block">
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+        </div>
+
+        <div class="sudoku-grid-block">
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+        </div>
+
+        <div class="sudoku-grid-block">
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+        </div>
+
+        <div class="sudoku-grid-block">
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+        </div>
+
+        <div class="sudoku-grid-block">
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+        </div>
+
+        <div class="sudoku-grid-block">
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+        </div>
+
+        <div class="sudoku-grid-block">
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+        </div>
+
+        <div class="sudoku-grid-block">
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+        </div>
+
+        <div class="sudoku-grid-block">
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+          <div class="sudoku-grid-cell"></div>
+        </div>
+
+      </div>
+
+      <div class="sudoku-buttons">
+        <div class="sudoku-buttons-extra">
+          <div> <!-- restart -->
+            <button id="restart">
+              <svg width="40px" height="40px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" transform="matrix(-1, 0, 0, 1, 0, 0)">
+                <path d="M18.2577 3.50828C18.538 3.62437 18.7207 3.89785 18.7207 4.20119V8.44383C18.7207 8.85805 18.3849 9.19383 17.9707 9.19383H13.728C13.4247 9.19383 13.1512 9.0111 13.0351 8.73085C12.9191 8.45059 12.9832 8.128 13.1977 7.9135L14.8007 6.3105C12.1674 5.20912 9.01606 5.7309 6.87348 7.87348C4.04217 10.7048 4.04217 15.2952 6.87348 18.1265C9.70478 20.9578 14.2952 20.9578 17.1265 18.1265C18.7727 16.4803 19.4622 14.2401 19.1935 12.0937C19.142 11.6827 19.4335 11.3078 19.8445 11.2563C20.2555 11.2049 20.6304 11.4963 20.6819 11.9073C21.0057 14.4934 20.1746 17.1997 18.1872 19.1872C14.7701 22.6043 9.2299 22.6043 5.81282 19.1872C2.39573 15.7701 2.39573 10.2299 5.81282 6.81282C8.55119 4.07444 12.6515 3.5312 15.9309 5.18028L17.4404 3.67086C17.6549 3.45637 17.9774 3.3922 18.2577 3.50828Z" fill="#7AB2FF"/>
+              </svg>
+            </button>
+            <div>Reiniciar</div>
+          </div>
+
+          <div> <!-- delete -->
+            <button id="delete">
+              <svg width="40px" height="40px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M13.0828 19.0632C12.6389 19.5072 12.2399 19.9062 11.8725 20.25H21C21.4142 20.25 21.75 20.5858 21.75 21C21.75 21.4142 21.4142 21.75 21 21.75H9C8.98166 21.75 8.96347 21.7493 8.94546 21.748C8.24156 21.7211 7.64439 21.4169 7.05863 20.97C6.47124 20.5218 5.81539 19.866 5.01269 19.0632L4.93674 18.9873C4.13402 18.1846 3.47815 17.5288 3.03 16.9414C2.56159 16.3274 2.25 15.701 2.25 14.9522C2.25 14.2035 2.56159 13.577 3.03 12.9631C3.47816 12.3757 4.13402 11.7199 4.93674 10.9172L10.9172 4.93674C11.7199 4.13403 12.3757 3.47815 12.9631 3.03C13.577 2.56159 14.2035 2.25 14.9522 2.25C15.701 2.25 16.3274 2.56159 16.9414 3.03C17.5288 3.47816 18.1846 4.13402 18.9873 4.93674L19.0632 5.01269C19.866 5.81539 20.5218 6.47124 20.97 7.05863C21.4384 7.67256 21.75 8.29902 21.75 9.04776C21.75 9.79649 21.4384 10.423 20.97 11.0369C20.5219 11.6243 19.866 12.2801 19.0633 13.0827L13.0828 19.0632ZM11.9399 6.03539C12.7899 5.18538 13.3752 4.60235 13.873 4.22253C14.3535 3.85592 14.6633 3.75 14.9522 3.75C15.2411 3.75 15.551 3.85592 16.0315 4.22253C16.5293 4.60235 17.1146 5.18538 17.9646 6.03539C18.8146 6.88541 19.3977 7.47069 19.7775 7.9685C20.1441 8.449 20.25 8.75886 20.25 9.04776C20.25 9.33665 20.1441 9.64651 19.7775 10.127C19.3977 10.6248 18.8146 11.2101 17.9646 12.0601L13.7713 16.2534L7.74662 10.2287L11.9399 6.03539ZM9.04776 20.25C9.33665 20.25 9.64651 20.1441 10.127 19.7775C10.6248 19.3977 11.2101 18.8146 12.0601 17.9646L12.7107 17.314L6.68596 11.2893L6.03539 11.9399C5.18538 12.7899 4.60235 13.3752 4.22253 13.873C3.85592 14.3535 3.75 14.6633 3.75 14.9522C3.75 15.2411 3.85592 15.551 4.22253 16.0315C4.60235 16.5293 5.18538 17.1146 6.03539 17.9646C6.88541 18.8146 7.47069 19.3977 7.9685 19.7775C8.449 20.1441 8.75886 20.25 9.04776 20.25Z" fill="#7AB2FF"/>
+              </svg>
+            </button>
+            <div>Apagar</div>
+          </div>
+
+          <div> <!-- next -->
+            <button id="next">
+              <svg width="40px" height="40px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3.76001 7.22005V16.7901C3.76001 18.7501 5.89 19.98 7.59 19L11.74 16.61L15.89 14.21C17.59 13.23 17.59 10.78 15.89 9.80004L11.74 7.40004L7.59 5.01006C5.89 4.03006 3.76001 5.25005 3.76001 7.22005Z" stroke="#7AB2FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M20.24 18.1801V5.82007" stroke="#7AB2FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div>Próximo</div>
+          </div>
+
+          <div> <!--config -->
+            <button id="config">
+              <svg width="40px" height="40px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="3" stroke="#7AB2FF" stroke-width="1.5"/> 
+                <path d="M13.7654 2.15224C13.3978 2 12.9319 2 12 2C11.0681 2 10.6022 2 10.2346 2.15224C9.74457 2.35523 9.35522 2.74458 9.15223 3.23463C9.05957 3.45834 9.0233 3.7185 9.00911 4.09799C8.98826 4.65568 8.70226 5.17189 8.21894 5.45093C7.73564 5.72996 7.14559 5.71954 6.65219 5.45876C6.31645 5.2813 6.07301 5.18262 5.83294 5.15102C5.30704 5.08178 4.77518 5.22429 4.35436 5.5472C4.03874 5.78938 3.80577 6.1929 3.33983 6.99993C2.87389 7.80697 2.64092 8.21048 2.58899 8.60491C2.51976 9.1308 2.66227 9.66266 2.98518 10.0835C3.13256 10.2756 3.3397 10.437 3.66119 10.639C4.1338 10.936 4.43789 11.4419 4.43786 12C4.43783 12.5581 4.13375 13.0639 3.66118 13.3608C3.33965 13.5629 3.13248 13.7244 2.98508 13.9165C2.66217 14.3373 2.51966 14.8691 2.5889 15.395C2.64082 15.7894 2.87379 16.193 3.33973 17C3.80568 17.807 4.03865 18.2106 4.35426 18.4527C4.77508 18.7756 5.30694 18.9181 5.83284 18.8489C6.07289 18.8173 6.31632 18.7186 6.65204 18.5412C7.14547 18.2804 7.73556 18.27 8.2189 18.549C8.70224 18.8281 8.98826 19.3443 9.00911 19.9021C9.02331 20.2815 9.05957 20.5417 9.15223 20.7654C9.35522 21.2554 9.74457 21.6448 10.2346 21.8478C10.6022 22 11.0681 22 12 22C12.9319 22 13.3978 22 13.7654 21.8478C14.2554 21.6448 14.6448 21.2554 14.8477 20.7654C14.9404 20.5417 14.9767 20.2815 14.9909 19.902C15.0117 19.3443 15.2977 18.8281 15.781 18.549C16.2643 18.2699 16.8544 18.2804 17.3479 18.5412C17.6836 18.7186 17.927 18.8172 18.167 18.8488C18.6929 18.9181 19.2248 18.7756 19.6456 18.4527C19.9612 18.2105 20.1942 17.807 20.6601 16.9999C21.1261 16.1929 21.3591 15.7894 21.411 15.395C21.4802 14.8691 21.3377 14.3372 21.0148 13.9164C20.8674 13.7243 20.6602 13.5628 20.3387 13.3608C19.8662 13.0639 19.5621 12.558 19.5621 11.9999C19.5621 11.4418 19.8662 10.9361 20.3387 10.6392C20.6603 10.4371 20.8675 10.2757 21.0149 10.0835C21.3378 9.66273 21.4803 9.13087 21.4111 8.60497C21.3592 8.21055 21.1262 7.80703 20.6602 7C20.1943 6.19297 19.9613 5.78945 19.6457 5.54727C19.2249 5.22436 18.693 5.08185 18.1671 5.15109C17.9271 5.18269 17.6837 5.28136 17.3479 5.4588C16.8545 5.71959 16.2644 5.73002 15.7811 5.45096C15.2977 5.17191 15.0117 4.65566 14.9909 4.09794C14.9767 3.71848 14.9404 3.45833 14.8477 3.23463C14.6448 2.74458 14.2554 2.35523 13.7654 2.15224Z" stroke="#7AB2FF" stroke-width="1.5"/>
+              </svg>
+            </button>
+            <div>Config</div>
+          </div>
+        </div>
+
+        <div class="sudoku-buttons-numbers">
+          <button id="1">1</button>
+          <button id="2">2</button>
+          <button id="3">3</button>
+          <button id="4">4</button>
+          <button id="5">5</button>
+          <button id="6">6</button>
+          <button id="7">7</button>
+          <button id="8">8</button>
+          <button id="9">9</button>
+        </div>
+
+        <button class="sudoku-buttons-solver" id="solver">Solução</button>
+
+      </div>
+
+    </div>
+
+  </body>
+
+  <footer>
+    <div>Gabriel Dantas</div>
+  </footer>
+
+  <script src="confetti.js"></script>
+  <script src="Script.js"></script>
+
+</html>
